@@ -1,6 +1,7 @@
 import { HttpResponse } from "msw";
 import { http } from "../http";
 import type { ApiSchemas } from "../../schema";
+import { verifyTokenOrThrow } from "../session";
 
 const boards: ApiSchemas["Board"][] = [
   {
@@ -14,10 +15,12 @@ const boards: ApiSchemas["Board"][] = [
 ];
 
 export const boardsHandlers = [
-  http.get("/boards", () => {
+  http.get("/boards", async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     return HttpResponse.json(boards);
   }),
   http.post("/boards", async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     const data = await ctx.request.json();
     const board = {
       id: `board-${boards.length + 1}`,
@@ -26,7 +29,8 @@ export const boardsHandlers = [
     boards.push(board);
     return HttpResponse.json(board, { status: 201 });
   }),
-  http.delete(`/boards/{boardId}`, ({ params }) => {
+  http.delete(`/boards/{boardId}`, async ({ params, request }) => {
+    await verifyTokenOrThrow(request);
     const { boardId } = params;
     const index = boards.findIndex((board) => board.id === boardId);
     if (index === -1) {
