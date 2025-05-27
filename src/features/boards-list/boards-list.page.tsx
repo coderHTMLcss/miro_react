@@ -10,7 +10,8 @@ function BoardsListPage() {
     const queryClient = useQueryClient();
     const boards = rqClient.useQuery('get', '/boards');
     const { data } = rqClient.useQuery('post', '/auth/refresh');
-    console.log(data);
+
+    console.log('bords-list');
 
 
     const createBoardMutation = rqClient.useMutation('post', '/boards', {
