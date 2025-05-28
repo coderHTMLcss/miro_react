@@ -21,12 +21,12 @@ export function AppHeader() {
               onClick={() => logout()}
               className="hover:bg-destructive/10"
             >
-              Выйти
+              Вийти
             </Button>
           </div>
         ) : (
           <Button asChild variant="default" size="sm">
-            <Link to={ROUTES.LOGIN}>Войти</Link>
+            <Link to={ROUTES.LOGIN}>Увійти</Link>
           </Button>
         )}
       </div>

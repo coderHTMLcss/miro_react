@@ -8,7 +8,16 @@ import { href, Link } from "react-router-dom";
 
 function BoardsListPage() {
     const queryClient = useQueryClient();
-    const boards = rqClient.useQuery('get', '/boards');
+    const boards = rqClient.useQuery('get', '/boards', {
+        params: {
+            query: {
+                limit: 100,
+            }
+        }
+    });
+
+    console.log('boards-list', boards);
+
     const { data } = rqClient.useQuery('post', '/auth/refresh');
 
     console.log('bords-list');
@@ -34,7 +43,7 @@ function BoardsListPage() {
                 const formData = new FormData(e.target as HTMLFormElement);
                 const name = formData.get('name')?.toString() || '';
                 createBoardMutation.mutate({
-                    body: { name },
+
                 });
             }}>
                 <input type="text" name="name" />
@@ -43,7 +52,7 @@ function BoardsListPage() {
                 </button>
             </form>
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {boards.data?.map((board) => (
+                {boards.data?.list?.map((board) => (
                     <Card key={board.id}>
                         <CardHeader>
                             <Button asChild variant="link">
