@@ -27,10 +27,10 @@ export function BoardsSortSelect({
                 <SelectValue placeholder="Сортировка" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="lastOpenedAt">По дате открытия</SelectItem>
-                <SelectItem value="createdAt">По дате создания</SelectItem>
-                <SelectItem value="updatedAt">По дате обновления</SelectItem>
-                <SelectItem value="name">По имени</SelectItem>
+                <SelectItem value="lastOpenedAt">За датою відкриття</SelectItem>
+                <SelectItem value="createdAt">За датою створення</SelectItem>
+                <SelectItem value="updatedAt">За датою оновлення</SelectItem>
+                <SelectItem value="name">За іменем</SelectItem>
             </SelectContent>
         </Select>
     );

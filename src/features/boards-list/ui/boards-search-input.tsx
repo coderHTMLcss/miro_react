@@ -9,7 +9,7 @@ export function BoardsSearchInput({ value, onChange }: BoardsSearchInputProps) {
     return (
         <Input
             id="search"
-            placeholder="Введите название доски..."
+            placeholder="Введіть назву дошки..."
             value={value}
             onChange={(e) => onChange(e.target.value)}
             className="w-full"
