@@ -10,7 +10,7 @@ import { type ViewMode, ViewModeToggle } from "./ui/view-mode-toggle";
 
 import { BoardItem } from "./compose/board-item";
 import { BoardCard } from "./compose/board-card";
-// import { BoardsSidebar } from "./ui/boards-sidebar";
+import { BoardsSidebar } from "./ui/boards-sidebar";
 
 function BoardsListPage() {
     const boardsQuery = useBoardsList({
@@ -21,7 +21,7 @@ function BoardsListPage() {
 
     return (
         <BoardsListLayout
-            // sidebar={<BoardsSidebar />}
+            sidebar={<BoardsSidebar />}
             header={
                 <BoardsListLayoutHeader
                     title="Обрані дошки"

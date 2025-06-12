@@ -15,7 +15,7 @@ import { useRecentGroups } from "./model/use-recent-group";
 
 import { BoardCard } from "./compose/board-card";
 import { BoardItem } from "./compose/board-item";
-// import { BoardsSidebar } from "./ui/boards-sidebar";
+import { BoardsSidebar } from "./ui/boards-sidebar";
 
 function BoardsListPage() {
     const boardsQuery = useBoardsList({
@@ -28,7 +28,7 @@ function BoardsListPage() {
 
     return (
         <BoardsListLayout
-            // sidebar={<BoardsSidebar />}
+            sidebar={<BoardsSidebar />}
             header={
                 <BoardsListLayoutHeader
                     title="Останні дошки"

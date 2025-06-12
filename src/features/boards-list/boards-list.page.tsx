@@ -5,7 +5,6 @@ import { useBoardsFilter } from "./model/use-boards-filters";
 import { useDebouncedValue } from "@/shared/lib/react";
 // import { useCreateBoard } from "./model/use-create-board";
 
-import { PlusIcon } from "lucide-react";
 import {
     BoardsListLayout,
     BoardsListLayoutContent,
@@ -17,7 +16,7 @@ import { BoardsSortSelect } from "./ui/boards-sort-select";
 import { BoardsSearchInput } from "./ui/boards-search-input";
 import { BoardItem } from "./compose/board-item";
 import { BoardCard } from "./compose/board-card";
-// import { BoardsSidebar } from "./ui/boards-sidebar";
+import { BoardsSidebar } from "./ui/boards-sidebar";
 // import {
 //     TemplatesGallery,
 //     TemplatesModal,
@@ -42,7 +41,7 @@ function BoardsListPage() {
             {/* <TemplatesModal /> */}
             <BoardsListLayout
                 // templates={<TemplatesGallery />}
-                // sidebar={<BoardsSidebar />}
+                sidebar={<BoardsSidebar />}
                 header={
                     <BoardsListLayoutHeader
                         title="Дошки"
